@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="542.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerP">
+   <center>
+      <AnchorPane prefHeight="539.0" prefWidth="689.0" BorderPane.alignment="CENTER">
+         <children>
+            <Accordion layoutX="14.0" layoutY="120.0" prefHeight="405.0" prefWidth="177.0">
+              <panes>
+                <TitledPane prefHeight="226.0" prefWidth="177.0" text="Tons de Cinza">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="175.0">
+                           <children>
+                              <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" onAction="#cinzaAritimetica" text="Média Aritimética" />
+                              <Button layoutX="24.0" layoutY="124.0" mnemonicParsing="false" onAction="#cinzaAritimeticaP" text="Média Ponderada" />
+                              <Label layoutX="24.0" layoutY="52.0" text="\%R">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRedP" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="45.0" />
+                              <TextField fx:id="txtGreP" layoutX="65.0" layoutY="79.0" prefHeight="25.0" prefWidth="45.0" />
+                              <TextField fx:id="txtBluP" layoutX="123.0" layoutY="79.0" prefHeight="25.0" prefWidth="45.0" />
+                              <Label layoutX="74.0" layoutY="52.0" text="\%G">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="133.0" layoutY="52.0" text="\%B">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Limiarização">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Slider fx:id="slideLimiar" layoutX="14.0" layoutY="36.0" max="255.0" showTickLabels="true" showTickMarks="true" value="120.0" />
+                              <Button layoutX="27.0" layoutY="88.0" mnemonicParsing="false" onAction="#limiarizacaoClick" text="Aplicar Limiarização" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Negativa">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="28.0" layoutY="32.0" mnemonicParsing="false" onAction="#negativa" text="Aplicar Negativa" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                  <TitledPane animated="false" text="Adição / Subtração">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="26.0" layoutY="101.0" mnemonicParsing="false" onAction="#add" text="Adição" />
+                              <Button layoutX="26.0" layoutY="142.0" mnemonicParsing="false" onAction="#sub" text="Subtração" />
+                              <Slider fx:id="slideImg1" layoutX="9.0" layoutY="14.0" showTickLabels="true" showTickMarks="true" value="50.0" />
+                              <Slider fx:id="slideImg2" layoutX="9.0" layoutY="51.0" showTickLabels="true" showTickMarks="true" value="50.0" />
+                           </children></AnchorPane>
+                     </content>
+                  </TitledPane>
+                <TitledPane animated="false" text="Ruídos">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton fx:id="selectC" layoutX="33.0" layoutY="35.0" mnemonicParsing="false" text="Elimina Cruz">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="g" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="selectX" layoutX="33.0" layoutY="71.0" mnemonicParsing="false" text="Elimina X" toggleGroup="$g" />
+                              <RadioButton fx:id="select3x3" layoutX="33.0" layoutY="105.0" mnemonicParsing="false" text="Elimina 3x3" toggleGroup="$g" />
+                              <Button layoutX="36.0" layoutY="146.0" mnemonicParsing="false" onAction="#eliminaRuidos" text="Elimina Ruídos" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Equalização de Histograma">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="48.0" layoutY="21.0" mnemonicParsing="false" onAction="#equalizacao" text="Equalização" />
+                              <Button layoutX="48.0" layoutY="62.0" mnemonicParsing="false" onAction="#equalizacaoValidos" text="Válidos" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane animated="false" text="Testes">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="47.0" layoutY="101.0" mnemonicParsing="false" onAction="#prova2" text="Prova02" />
+                              <TextField fx:id="textQuadrante1" layoutX="14.0" layoutY="47.0" prefHeight="25.0" prefWidth="66.0" />
+                              <Button layoutX="51.0" layoutY="14.0" mnemonicParsing="false" onAction="#prova1" text="Prova01" />
+                              <Button layoutX="51.0" layoutY="153.0" mnemonicParsing="false" onAction="#prova3" text="Prova03" />
+                              <TextField fx:id="textQuadrante2" layoutX="88.0" layoutY="47.0" prefHeight="25.0" prefWidth="78.0" />
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+            <Label layoutX="48.0" layoutY="18.0" text="PDI">
+               <font>
+                  <Font size="51.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblR" layoutX="206.0" layoutY="29.0" text="R:" textFill="#e81515">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Button layoutX="258.0" layoutY="78.0" mnemonicParsing="false" onAction="#abreImagem1" text="Abrir Imagem 1" />
+            <Button layoutX="482.0" layoutY="78.0" mnemonicParsing="false" onAction="#abreImagem2" text="Abrir Imagem 2" />
+            <Button layoutX="714.0" layoutY="79.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" />
+            <Button layoutX="762.0" layoutY="34.0" mnemonicParsing="false" onAction="#abreHistograma" text="Histograma" />
+            <Label fx:id="lblG" layoutX="376.0" layoutY="29.0" text="G:" textFill="#0fcf19">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblB" layoutX="297.0" layoutY="29.0" text="B:" textFill="#0646ea">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="430.0" layoutY="149.0" prefHeight="323.0" prefWidth="208.0">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fx:id="imageView2" fitHeight="150.0" fitWidth="200.0" onMouseMoved="#rasterImg" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="649.0" layoutY="149.0" prefHeight="323.0" prefWidth="208.0">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" onMouseMoved="#rasterImg" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <ScrollPane layoutX="212.0" layoutY="149.0" prefHeight="323.0" prefWidth="208.0">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fx:id="imageView1" fitHeight="150.0" fitWidth="200.0" onMouseMoved="#rasterImg" onMousePressed="#coordenada1" onMouseReleased="#coordenada2" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <CheckBox fx:id="checkBoxMoldura" layoutX="212.0" layoutY="483.0" mnemonicParsing="false" text="Moldura" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
